@@ -1,0 +1,663 @@
+/* Alert System CSS - Fixed Layout with Creative Design */
+
+.alert-container {
+    margin-left: 0px; /* Account for sidebar width */
+    min-height: 100vh;
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #111111 100%);
+    padding: 32px 24px;
+    color: #ffffff;
+    position: relative;
+    overflow-x: hidden;
+    z-index: 1; /* Below sidebar */
+    overflow-y: scroll;
+    max-height: 100vh;
+  }
+  
+  .alert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding: 0 8px;
+  }
+  
+  .alert-title {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin: 0;
+    background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .user-location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(1, 169, 194, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(1, 169, 194, 0.2);
+    border-radius: 20px;
+    padding: 6px 12px;
+    color: #01a9c2;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  
+  .location-icon {
+    font-size: 14px;
+  }
+  
+  /* Environmental Data Grid - Compact Design */
+  .environmental-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  
+  .env-card {
+    background: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(42, 42, 42, 0.6);
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    height: 160px; /* Fixed compact height */
+  }
+  
+  .env-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(1, 169, 194, 0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .env-card:hover::before {
+    opacity: 1;
+  }
+  
+  .env-card:hover {
+    transform: translateY(-3px) scale(1.02);
+    border-color: rgba(1, 169, 194, 0.4);
+    background: rgba(20, 20, 20, 0.9);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(1, 169, 194, 0.15);
+  }
+  
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(42, 42, 42, 0.3);
+  }
+  
+  .card-icon {
+    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(1, 169, 194, 0.2), rgba(1, 169, 194, 0.05));
+    border-radius: 8px;
+    border: 1px solid rgba(1, 169, 194, 0.3);
+    position: relative;
+  }
+  
+  .card-icon::after {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: linear-gradient(135deg, rgba(1, 169, 194, 0.1), transparent);
+    border-radius: 7px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .env-card:hover .card-icon::after {
+    opacity: 1;
+  }
+  
+  .card-header h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: -0.2px;
+  }
+  
+  .card-content {
+    line-height: 1.4;
+    height: calc(100% - 60px);
+    overflow: hidden;
+  }
+  
+  /* Weather Specific Styles - Compact */
+  .weather-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+  .temp {
+    font-size: 24px;
+    font-weight: 700;
+    color: #01a9c2;
+    line-height: 1;
+  }
+  
+  .weather-main {
+    text-align: right;
+  }
+  
+  .condition {
+    font-size: 12px;
+    font-weight: 500;
+    color: #cccccc;
+    margin-bottom: 2px;
+  }
+  
+  .feels-like {
+    font-size: 10px;
+    color: #888;
+  }
+  
+  .weather-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  
+  .detail {
+    flex: 1;
+    text-align: center;
+    padding: 6px 4px;
+    background: rgba(42, 42, 42, 0.2);
+    border-radius: 6px;
+    border: 1px solid rgba(60, 60, 60, 0.3);
+  }
+  
+  .detail span:first-child {
+    display: block;
+    font-size: 9px;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 2px;
+  }
+  
+  .detail span:last-child {
+    font-size: 11px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+  
+  /* Air Quality Styles - Compact */
+  .aqi-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+  .aqi-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffa500;
+    line-height: 1;
+  }
+  
+  .aqi-main {
+    text-align: right;
+  }
+  
+  .aqi-level {
+    font-size: 12px;
+    font-weight: 500;
+    color: #cccccc;
+    margin-bottom: 2px;
+  }
+  
+  .pm25-info {
+    font-size: 10px;
+    color: #888;
+  }
+  
+  .pollutants {
+    font-size: 10px;
+    color: #888888;
+    padding: 6px 8px;
+    background: rgba(42, 42, 42, 0.2);
+    border-radius: 4px;
+    border-left: 2px solid #ffa500;
+    margin-top: 8px;
+  }
+  
+  /* Traffic Styles - Compact */
+  .traffic-status {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #01a9c2;
+  }
+  
+  .traffic-info {
+    font-size: 11px;
+    color: #ffa500;
+    margin-bottom: 8px;
+  }
+  
+  .traffic-alerts {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 60px;
+    overflow-y: auto;
+  }
+  
+  .alert-item {
+    padding: 4px 8px;
+    background: rgba(42, 42, 42, 0.3);
+    border-radius: 4px;
+    font-size: 10px;
+    border-left: 2px solid #ffa500;
+  }
+  
+  /* Health Styles - Compact */
+  .health-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .pollen {
+    font-size: 12px;
+    font-weight: 500;
+    color: #01a9c2;
+  }
+  
+  .flu-activity {
+    font-size: 11px;
+    color: #ccc;
+  }
+  
+  .allergens {
+    font-size: 10px;
+    color: #888;
+    padding: 4px 6px;
+    background: rgba(42, 42, 42, 0.2);
+    border-radius: 4px;
+  }
+  
+  .covid-alert {
+    padding: 6px 8px;
+    background: rgba(255, 165, 0, 0.1);
+    border: 1px solid rgba(255, 165, 0, 0.3);
+    border-radius: 4px;
+    color: #ffa500;
+    font-size: 10px;
+  }
+  
+  .health-advisories {
+    font-size: 10px;
+    color: #ffa500;
+  }
+  
+  /* Crime & Safety - Compact */
+  .safety-status {
+    font-size: 12px;
+    color: #01a9c2;
+    margin-bottom: 8px;
+  }
+  
+  .crime-alerts {
+    max-height: 80px;
+    overflow-y: auto;
+  }
+  
+  .crime-item {
+    padding: 4px 8px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+    font-size: 10px;
+  }
+  
+  .shooting-alert {
+    background: rgba(255, 107, 107, 0.1);
+    border-left: 2px solid #ff6b6b;
+    color: #ff6b6b;
+  }
+  
+  .robbery-alert {
+    background: rgba(255, 165, 0, 0.1);
+    border-left: 2px solid #ffa500;
+    color: #ffa500;
+  }
+  
+  .general-alert {
+    background: rgba(42, 42, 42, 0.3);
+    border-left: 2px solid #666;
+    color: #ccc;
+  }
+  
+  .areas-warning {
+    font-size: 9px;
+    color: #ffa500;
+    margin-top: 6px;
+    padding: 4px 6px;
+    background: rgba(255, 165, 0, 0.1);
+    border-radius: 4px;
+  }
+  
+  /* Business & Markets - Compact */
+  .business-status {
+    font-size: 12px;
+    color: #01a9c2;
+    margin-bottom: 8px;
+  }
+  
+  .business-alerts {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .business-item {
+    padding: 4px 8px;
+    background: rgba(42, 42, 42, 0.2);
+    border-radius: 4px;
+    font-size: 10px;
+    border-left: 2px solid #01a9c2;
+  }
+  
+  /* Recommendations Section - Compact */
+  .recommendations-section {
+    margin-bottom: 32px;
+  }
+  
+  .recommendations-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  
+  .recommendation-card {
+    background: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(42, 42, 42, 0.6);
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 80px;
+  }
+  
+  .recommendation-card:hover {
+    transform: translateY(-2px);
+    background: rgba(20, 20, 20, 0.9);
+    border-color: rgba(1, 169, 194, 0.3);
+  }
+  
+  .rec-icon {
+    font-size: 18px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(1, 169, 194, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(1, 169, 194, 0.2);
+    flex-shrink: 0;
+  }
+  
+  .rec-content {
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  .rec-title {
+    margin: 0 0 4px 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+  
+  .rec-message {
+    margin: 0;
+    font-size: 11px;
+    color: #cccccc;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .priority-indicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    border-radius: 0 10px 10px 0;
+  }
+  
+  .priority-indicator.high {
+    background: linear-gradient(180deg, #ff6b6b, #ff4757);
+  }
+  
+  .priority-indicator.medium {
+    background: linear-gradient(180deg, #ffa500, #ff9500);
+  }
+  
+  .priority-indicator.low {
+    background: linear-gradient(180deg, #01a9c2, #0197b3);
+  }
+  
+  /* User Info Section - Compact */
+  .user-info-section {
+    background: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(42, 42, 42, 0.6);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 32px;
+  }
+  
+  .user-info-section h3 {
+    margin: 0 0 16px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .user-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px;
+    background: rgba(42, 42, 42, 0.2);
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid rgba(60, 60, 60, 0.3);
+  }
+  
+  .stat-label {
+    font-size: 10px;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-weight: 500;
+  }
+  
+  .stat-value {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .alert-container {
+      margin-left: 50px;
+      padding: 16px;
+    }
+  
+    .alert-title {
+      font-size: 20px;
+    }
+  
+    .alert-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+  
+    .environmental-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  
+    .env-card {
+      height: 140px;
+    }
+  
+    .user-stats {
+      grid-template-columns: 1fr;
+    }
+  
+    .recommendations-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .alert-container {
+      margin-left: 0;
+      padding: 12px;
+    }
+  
+    .environmental-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .env-card {
+      padding: 12px;
+      height: 120px;
+    }
+  
+    .temp, .aqi-value {
+      font-size: 20px;
+    }
+  }
+  
+  /* Custom Scrollbar */
+  .alert-container::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .alert-container::-webkit-scrollbar-track {
+    background: rgba(26, 26, 26, 0.3);
+  }
+  
+  .alert-container::-webkit-scrollbar-thumb {
+    background: rgba(1, 169, 194, 0.3);
+    border-radius: 2px;
+  }
+  
+  .alert-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(1, 169, 194, 0.5);
+  }
+  
+  .traffic-alerts::-webkit-scrollbar,
+  .crime-alerts::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+  .traffic-alerts::-webkit-scrollbar-track,
+  .crime-alerts::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .traffic-alerts::-webkit-scrollbar-thumb,
+  .crime-alerts::-webkit-scrollbar-thumb {
+    background: rgba(1, 169, 194, 0.3);
+    border-radius: 1px;
+  }
+  
+  /* Loading States */
+  .env-card.loading {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  
+  .env-card.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(1, 169, 194, 0.1), transparent);
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  /* Enhanced Visual Effects */
+  .env-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(1, 169, 194, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s ease;
+    pointer-events: none;
+  }
+  
+  .env-card:hover::after {
+    width: 200px;
+    height: 200px;
+  }
