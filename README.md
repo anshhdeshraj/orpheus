@@ -82,4 +82,4 @@ Orpheus is a prototype. For emergencies or real-time safety concerns, always ref
 ---
 
 ## 🧑‍💻 Team
-Built with ❤️ by [Your Name] for the Public Safety Hackathon.
+Built with ❤️ by Ansh for the Public Safety Hackathon.
